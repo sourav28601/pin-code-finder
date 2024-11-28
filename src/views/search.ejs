@@ -1,0 +1,56 @@
+<%- include('partials/header') %>
+<div class="container mt-4">
+    <h2>Search Indian Pin Code</h2>
+    <form action="/api/search/code" method="post" >
+        <div class="mb-3">
+            <input type="radio" name="searchType" value="code" required> Search by Pin Code
+            <input type="radio" name="searchType" value="name" required> Search by Name
+        </div>
+        <input type="text" name="query" class="form-control" required>
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
+    </form>
+
+    <% if (results.length) { %>
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Branch Type</th>
+                <th>Delivery Status</th>
+                <th>District</th>
+                <th>Region</th>
+                <th>State</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% results.forEach((result) => { %>
+            <tr>
+                <td><%= result.Name %></td>
+                <td><%= result.BranchType %></td>
+                <td><%= result.DeliveryStatus %></td>
+                <td><%= result.District %></td>
+                <td><%= result.Region %></td>
+                <td><%= result.State %></td>
+                <td>
+                    <form method="post" action="/api/search/favourite">
+                        <input type="hidden" name="name" value="<%= result.Name %>">
+                        <input type="hidden" name="branch_type" value="<%= result.BranchType %>">
+                        <input type="hidden" name="delivery_status" value="<%= result.DeliveryStatus %>">
+                        <input type="hidden" name="district" value="<%= result.District %>">
+                        <input type="hidden" name="region" value="<%= result.Region %>">
+                        <input type="hidden" name="state" value="<%= result.State %>">
+                        <button type="submit" class="btn btn-success">Favourite</button>
+                    </form>
+                </td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <% } %>
+</div>
+</div>
+<!-- Bootstrap 5 JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
