@@ -1,13 +1,13 @@
-# Event Management 
+# Pincode Finder
 
-This API provides a set of endpoints to manage books and orders for a bookstore.
+This Assignment provides search city by name and pincode, add as a favourite city and view all favoutites.
 
 ## Initial Project Setup
 Follow these steps to set up and run the project locally:
 
 1. Clone the Repository
-   * `git clone https://github.com/sourav28601/event-management-nodejs.git`
-   * `cd Nodejs Backend`
+   * `git clone https://github.com/sourav28601/pin-code-finder.git`
+   * `cd pin-code-finder`
 
 2. Install Dependencies
    * Ensure that Node.js and npm are installed on your system
@@ -23,4 +23,3 @@ Follow these steps to set up and run the project locally:
    
 5. Run Migrations
    * After the database is created, run migrations to set up the tables:: `npx sequelize db:migrate`
-   * For run the seeder `npx sequelize db:seed:all`
